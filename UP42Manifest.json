@@ -1,0 +1,32 @@
+{
+    "_up42_specification_version": 1,
+    "name": "aspectum-store",
+    "type": "data",
+    "tags": [
+      "ASPECTUM",
+      "VISION"
+    ],
+    "display_name": "Aspectum S3 store",
+    "description": "S3 store used by aspectum",
+    "parameters": {
+      "bbox": {"type": "array", "default": null},
+      "intersects": {"type": "geometry"},
+      "contains": {"type": "geometry"},
+      "time": {"type": "dateRange", "default": null},
+      "limit": {"type": "integer", "minimum": 1, "default": 1},
+      "zoom_level": {"type": "integer", "minimum": 9, "maximum": 9, "default": 9},
+      "imagery_layers": {"type": "array", "default": ["Aspectum WMS"]}
+    },
+    "machine": {
+      "type": "medium"
+    },
+    "optional_features": {
+      "quicklook_supported": true,
+      "dry_run_supported": true
+    },
+    "input_capabilities": {
+    },
+    "output_capabilities": {
+        "up42.data.aoiclipped": {}
+    }
+  }
