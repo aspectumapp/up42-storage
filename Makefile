@@ -9,7 +9,6 @@ AWS_ACCESS_KEY :=
 AWS_SECRET_ACCESS_KEY :=
 AWS_REGION :=
 AWS_BUCKET_NAME :=
-AWS_PUBLIC_BUCKET_NAME :=
 
 UID :=
 
@@ -18,12 +17,6 @@ REGISTRY := registry.up42.com
 
 install:
 	pip install -r requirements.txt
-
-test:
-	bash test.sh
-
-test[live]:
-	bash test.sh --live
 
 clean:
 	find . -name "__pycache__" -exec rm -rf {} +
@@ -51,10 +44,5 @@ push:
 login:
 	docker login -u $(USER) https://$(REGISTRY)
 https://registry.up42.com
-e2e:
-	python e2e.py
 
-available-layers:
-	python src/available_layers.py
-
-.PHONY: build login push test install e2e available-layers push login
+.PHONY: build login push install push login
