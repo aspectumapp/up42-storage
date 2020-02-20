@@ -9,14 +9,13 @@ This example requires the Mac or Ubuntu bash. In order to bring this example blo
  - [UP42](https://up42.com) account -  Sign up for free!
  - [AWS](https://aws.amazon.com/) account with bucket created
  - [Python 3.7](https://python.org/downloads)
- - A virtual environment manager e.g. [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
  - [git](https://git-scm.com/)
  - [docker engine](https://docs.docker.com/engine/)
  - [GNU make](https://www.gnu.org/software/make/)
+ - A virtual environment manager e.g. [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) (optional for running the block locally)
 
 
 ## Instructions
-
 ### Clone the repository
 ```
 git clone https://github.com/aspectumapp/up42-storage.git
@@ -24,23 +23,6 @@ git clone https://github.com/aspectumapp/up42-storage.git
 
 Then navigate to the folder via `cd up42-storage`.
 
-
-### Installing the required libraries
-
-First create a new virtual environment called up42-aws, for example by using virtualenvwrapper:
-```
-mkvirtualenv --python=$(which python3.7) up42-aws
-```
-
-Activate the new environment:
-```
-workon up42-aws
-```
-
-Install the necessary Python libraries via:
-```
-make install
-```
 ### Set up parameters
 To use the block you should provide [your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html). 
 Open the `Makefile`. Edit the code below by inserting your AWS credentials:
@@ -50,10 +32,9 @@ AWS_ACCESS_KEY :=
 AWS_SECRET_ACCESS_KEY :=
 AWS_REGION :=
 AWS_BUCKET_NAME :=
-AWS_PUBLIC_BUCKET_NAME :=
 ```
 
-## Pushing the block to the UP42 platform
+### Pushing the block to the UP42 platform
 
 First login to the UP42 docker registry. `me@example.com` needs to be replaced by your **UP42 username**,
 which is the email address you use on the UP42 website.
@@ -111,10 +92,25 @@ make push UID=<UID> DOCKER_TAG=<docker tag> DOCKER_VERSION=<docker version>
 
 ## Using the block
 1. To use the block in UP42 Platform, you should provide the filename of the imagery stored on the bucket.
-Сюди скріншот
 
 2. Zoom level is required parameter. To understand zoom levels and scales check [this article](https://wiki.openstreetmap.org/wiki/Zoom_levels). I.e. for using Pleiades data with a resolution ~50cm zoom level 18 is prefeded.
 
 3. Run the job! Now your file has been used as an input for the following processing and/or visualization.
 **Important: The imagery should be in EPSG:3857 coordinate system. For transforming the coordinate system of geotiff you could use GIS software: [QGIS](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/rasterprojections.html) or [ArcGIS](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/defining-or-modifying-a-raster-coordinate-system.htm) examples.**
 
+## Run block locally: Installing the required libraries
+
+First create a new virtual environment called up42-aws, for example by using virtualenvwrapper:
+```
+mkvirtualenv --python=$(which python3.7) up42-aws
+```
+
+Activate the new environment:
+```
+workon up42-aws
+```
+
+Install the necessary Python libraries via:
+```
+make install
+```
