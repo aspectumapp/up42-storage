@@ -4,18 +4,15 @@
     "type": "data",
     "tags": [
       "ASPECTUM",
-      "VISION"
+      "VISION",
+      "imagery"
     ],
     "display_name": "Aspectum S3 store",
     "description": "S3 store used by aspectum",
     "parameters": {
       "bbox": {"type": "array", "default": null},
-      "intersects": {"type": "geometry"},
-      "contains": {"type": "geometry"},
-      "time": {"type": "dateRange", "default": null},
-      "limit": {"type": "integer", "minimum": 1, "default": 1},
-      "zoom_level": {"type": "integer", "minimum": 9, "maximum": 9, "default": 9},
-      "imagery_layers": {"type": "array", "default": ["Aspectum WMS"]}
+      "file_name": {"type": "string"},
+      "zoom_level": {"type": "integer", "minimum": 9, "maximum": 9, "default": 9}
     },
     "machine": {
       "type": "medium"
