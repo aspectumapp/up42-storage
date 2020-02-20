@@ -5,7 +5,7 @@
     "tags": [
       "Aspectum",
       "Storage",
-      "Aws”
+      "Aws"
     ],
     "display_name": "UP42 Storage",
     "description": "The block enables UP42 users to run processing algorithms on top of their data. The concept of the block came from the case where the Cars Detection algorithm should have been run on previously acquired imagery for further visualization and processing in Aspectum.",
