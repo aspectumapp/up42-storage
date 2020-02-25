@@ -45,29 +45,6 @@ class STACQuery:
         self.file_path = file_path
         self.bbox = bbox
 
-    def bounds(self) -> BoundingBox:
-        """
-        Get the bounding box of the query AOI(s) as a GeoJson Polygon object.
-        """
-        if self.bbox:
-            return self.bbox
-        else:
-            raise ValueError(
-                """STACQuery does not contain any of the following query 
-                parameters:
-                * bbox """
-            )
-
-    def geometry(self) -> Geometry:
-        if self.bbox:
-            return shapely.geometry.box(*self.bbox)
-        else:
-            raise ValueError(
-                """STACQuery does not contain any of the following query 
-                parameters:
-                * bbox """
-            )
-
     def set_param_if_not_exists(self, key, value):
         if key not in self.__dict__:
             self.__dict__[key] = value
