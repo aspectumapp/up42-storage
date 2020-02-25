@@ -27,8 +27,8 @@ class STACQuery:
 
     def __init__(
             self,
+            file_path: str,
             bbox: Optional[BoundingBox] = None,
-            file_path: Optional[str] = None,
             **kwargs
     ):  # pylint: disable=too-many-arguments
 
@@ -95,8 +95,7 @@ class STACQuery:
                 or dict_data.get("bbox") == {}
         ) else None
 
-        file_path: Optional[str] = dict_data.get("file_path") \
-            if not dict_data.get("time") == "" else None
+        file_path: str = dict_data.get("file_path")
 
         known_filters = [
             "bbox",
