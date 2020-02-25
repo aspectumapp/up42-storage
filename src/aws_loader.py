@@ -26,7 +26,6 @@ class AWSAspectum:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_REGION = os.environ.get('AWS_REGION')
     BUCKET_NAME = os.environ.get('AWS_BUCKET_NAME')
-    TIF_FILES = 'up42_storage'
 
     @staticmethod
     def __convert_size(size_bytes):
@@ -47,7 +46,6 @@ class AWSAspectum:
         )
         output_features: List[Feature] = []
 
-        file_path = f'{AWSAspectum.TIF_FILES}/{query.file_name}'
         feature_id: str = str(uuid.uuid4())
         out_path = f'/tmp/output/{feature_id}.tif'
 
@@ -81,14 +79,15 @@ class AWSAspectum:
         try:
             response = s3.head_object(
                 Bucket=AWSAspectum.BUCKET_NAME,
-                Key=file_path
+                Key=query.file_path
             )
             logger.debug(
                 f'[FILE SIZE ON S3] - '
                 f'{AWSAspectum.__convert_size(response["ContentLength"])}'
             )
             with open(out_path, 'wb') as f:
-                s3.download_fileobj(AWSAspectum.BUCKET_NAME, file_path, f)
+                s3.download_fileobj(
+                    AWSAspectum.BUCKET_NAME, query.file_path, f)
             output_features.append(feature)
         except botocore.exceptions.ClientError as e:
             if e.response['Error']['Code'] == "404":
