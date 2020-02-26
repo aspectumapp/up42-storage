@@ -1,14 +1,14 @@
 ## Configuration for Makefile.
-USER := vision@eosda.com
+USER :=
 UP42_DOCKERFILE := Dockerfile
 DOCKER_TAG :=
 DOCKER_VERSION := latest
 UP42_MANIFEST := UP42Manifest.json
 
-AWS_ACCESS_KEY :=
-AWS_SECRET_ACCESS_KEY :=
-AWS_REGION :=
-AWS_BUCKET_NAME :=
+AWS_ACCESS_KEY := #XXXXXXXXXXXXXXXXXX
+AWS_SECRET_ACCESS_KEY := #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+AWS_REGION := #us-east-1
+AWS_BUCKET_NAME := #your-bucket-name-where-get-files
 
 UID :=
 
@@ -35,7 +35,6 @@ build:
 	--build-arg aws_secret_access_key='${AWS_SECRET_ACCESS_KEY}' \
 	--build-arg aws_region='${AWS_REGION}' \
 	--build-arg aws_bucket_name='${AWS_BUCKET_NAME}' \
-	--build-arg aws_public_bucket_name='${AWS_PUBLIC_BUCKET_NAME}' \
 	-t $(REGISTRY)/$(UID)/$(DOCKER_TAG):$(DOCKER_VERSION)
 
 push:
