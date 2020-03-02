@@ -1,7 +1,7 @@
 ## Configuration for Makefile.
 USER :=
 UP42_DOCKERFILE := Dockerfile
-DOCKER_TAG := UP42-Aspectum
+DOCKER_TAG := up42-aspectum
 DOCKER_VERSION := latest
 UP42_MANIFEST := UP42Manifest.json
 
