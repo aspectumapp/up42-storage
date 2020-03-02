@@ -33,10 +33,10 @@ To use the block you should provide [your AWS credentials](https://docs.aws.amaz
 Open the `Makefile`. Edit the code below by inserting your AWS credentials:
 
 ```
-AWS_ACCESS_KEY := #XXXXXXXXXXXXXXXXXX
-AWS_SECRET_ACCESS_KEY := #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-AWS_REGION := #us-east-1
-AWS_BUCKET_NAME := #your-bucket-name-with-files
+AWS_ACCESS_KEY := XXXXXXXXXXXXXXXXXX
+AWS_SECRET_ACCESS_KEY := XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+AWS_REGION := us-east-1
+AWS_BUCKET_NAME := your-bucket-name-with-files
 ```
 
 ### Pushing the block to the UP42 platform
