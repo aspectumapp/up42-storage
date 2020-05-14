@@ -84,7 +84,7 @@ The default docker tag is `up42-storage` and the version is set to `latest`.
 ```bash
 make build UID=<UID> DOCKER_TAG=<docker tag> DOCKER_VERSION=<docker version>
 
-# As an example: docker build UID=63uayd50-z2h1-3461-38zq-1739481rjwia DOCKER_TAG=up42-storage DOCKER_VERSION=1.0
+# As an example: make build UID=63uayd50-z2h1-3461-38zq-1739481rjwia DOCKER_TAG=up42-storage DOCKER_VERSION=1.0
 ```
 
 Then push the block container with the updated tag and version:
